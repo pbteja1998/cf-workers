@@ -1,3 +1,11 @@
+import { json } from "@remix-run/cloudflare";
+import { getFaunaClient } from "~/services/fauna.server";
+
+export async function loader() {
+  const fauna = getFaunaClient()
+  return json({hello: "world"})
+}
+
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
